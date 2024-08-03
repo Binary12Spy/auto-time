@@ -1,0 +1,62 @@
+.actitimeForm {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 75%;
+}
+
+#taskList {
+    max-width: 500px;
+    max-height: 500px;
+    overflow: auto;
+}
+
+#actitimeLoginErrorText {
+    color: red;
+    font-size: 12px;
+}
+
+#calendar {
+    /* 		float: right; */
+    margin: 30 auto 30 auto;
+    width: 900px;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px #C3C3C3;
+}
+
+.fc-event-title {
+    text-wrap: pretty;
+}
+
+@media (max-width: 767px) {
+
+    .input-group-sm .input-group-text,
+    .input-group-sm .form-control {
+        display: block;
+        width: 100%;
+        text-align: left;
+        border-radius: 0.25rem !important;
+    }
+
+    .input-group-sm .input-group-text {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .input-group-sm .input-group-text,
+    .input-group-sm .form-control {
+        display: block;
+        width: 100%;
+        text-align: left;
+        border-radius: 0.25rem !important;
+    }
+
+    .input-group-sm .input-group-text {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
