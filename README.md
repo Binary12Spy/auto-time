@@ -1,39 +1,27 @@
-# Auto-Time
+# AutoTime
 
-A project that:
-1. Interfaces with [Actitime](https://www.actitime.com/)'s open [REST API](https://online.actitime.com/your-company-here/api/v1/swagger) endpoints
-1. Generates times for selected tasks with a (currently hardcoded) variance based off % of time share each task has in your 8 hour day
-1. Accepts time off based on a float value of hours
-1. Generates a "Timetrack" schedule within a given date range, respecting company holidays and your entered time off, based upon the entered time share between selected tasks
-1. Previews the generated schedule on a fancy little calendar
-1. If the user chooses, also applies the generated Timetrack schedule to Actitime automagically
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0-next.1.
 
-### Setup
+## Development server
 
-Auto-Time consists of static HTML, CSS, and JS files. Simply modify the `ACTITIME_BASE_URL` constant in `actitime.js` to match your company's URL and host the static files with the http(s) server of your choice.  
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-For the quickest spin up simply run `py -m http.server` in the Auto-Time directory and navigate to `http://localhost:{port-noted-in-your-terminal}`  
+## Code scaffolding
 
-Actitime uses HTTP Basic authentication for it's REST API endpoints so the goal of this project was to keep all data entered in the browser.
-Currently the entered Actitime credentials are stored plain text in the browsers Session Storage for use bwteen API calls, all other information exists in ram.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-### Actitime endpoints used
+## Build
 
-1. GET `/users/me`
-    * When the user submits thier Actitime credentials, we validate them with this endpoint and also retireve the Actitime UserID which will be needed for a later endpoint
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-1. GET `/leaveTypes`
-    * Query params: `offset=0&limit=1000&archived=false`
-    * Retrns the leave types for your organization
+## Running unit tests
 
-1. GET `/users/{uid}/schedule`
-    * Query params: `dateFrom={start-date}&dateTo={end-date}`
-    * Returns the uses scheduled minutes from a defined start date and end date. This data is used to determine corporarte holidays and otherwise non-working days
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-1. GET `/tasks`
-    * Query params: `offset=0&limit=1000&status=open`
-    * Returns all tasks available to user. Auto-Time groups these under the "CustomerName" field.
+## Running end-to-end tests
 
-1. POST `/batch`
-    * Query params: `includeResponseBody=always`
-    * Used to apply the generated Timetrack shcedule.
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
