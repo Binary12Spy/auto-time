@@ -1,13 +1,25 @@
-<div class="modal-backdrop" (click)="closeModal()"></div>
-<div class="modal">
-  <div class="modal-header">
-    <h2>Login to Actitime</h2>
-    <button (click)="closeModal()"><mat-icon>close</mat-icon></button>
-  </div>
-  <div class="modal-body">
-  </div>
-  <div class="modal-footer">
-    <button (click)="closeModal()">Cancel</button>
-    <button (click)="login()">Login</button>
-  </div>
+<div *ngIf="shown" class="modal">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h2>Login</h2>
+        <form (ngSubmit)="login()">
+            <mat-form-field>
+                <mat-label>Company ID</mat-label>
+                <input matInput [(ngModel)]="companyId" name="companyId" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput [(ngModel)]="username" name="username" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="password" name="password"
+                    required>
+                <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Login</button>
+        </form>
+    </div>
 </div>

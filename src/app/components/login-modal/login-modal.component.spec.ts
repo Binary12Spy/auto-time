@@ -11,7 +11,7 @@ describe('LoginModalComponent', () => {
       imports: [LoginModalComponent]
     })
     .compileComponents();
-
+    
     fixture = TestBed.createComponent(LoginModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
